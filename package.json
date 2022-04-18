@@ -1,0 +1,11 @@
+{
+  "name": "bsalefront",
+  "version": "1.0.0",
+  "description": "app bsale",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.html"
+  },
+  "author": "",
+  "license": "ISC"
+}
