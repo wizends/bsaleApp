@@ -1,4 +1,4 @@
-const URI = "http://localhost:3004";
+const URI = "https://bsaletesapi.herokuapp.com";
 const productsToShow = 8;
 
 fetch(`${URI}/pageQuantity`)
@@ -45,7 +45,6 @@ searchInput.addEventListener("submit", async (e) => {
                 fetch('https://api.thecatapi.com/v1/images/search')
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data[0])
                         searchResult.innerHTML = `
                 <h3>No hay resultados para la busqueda: ${search}</h3>
                 <div class="containerImg" ><img src="${data[0].url}" width="${data[0].width}" height="${data[0].height}" /></div>
@@ -63,7 +62,6 @@ fetch(`${URI}/products/page?page=${0}&limit=${productsToShow}`)
     .catch(err => console.log(err))
     .then(resJson => resJson[0].rows)
     .then(data => {
-        console.log(data)
         filterContainer.innerHTML += `<h4 id="titleCategory">Todos los productos</h4>`
         renderProducts(data)
 

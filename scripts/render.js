@@ -12,7 +12,11 @@ const bodyContain = document.getElementById('bodyContain')
 const item = document.querySelector('.item')
 const paginationContainer = document.getElementById('paginationContainer')
 
-
+const formatter = new Intl.NumberFormat('es-CL', {
+    style: 'currency',
+    currency: 'CLP',
+    minimumFractionDigits: 0
+  })
 
 closeSideBarButton.addEventListener("click", async () => {
     sideBar.style = 'transform:translate(-350px)'
@@ -35,6 +39,7 @@ const clearProducts = async () => {
 }
 const renderProducts = async (data) => {
     await data.map(x => {
+        let price = formatter.format(x.price)
         if (x.url_image == null || x.url_image == '') {
             x.url_image = "../../nodisp.png"
         }
@@ -46,7 +51,7 @@ const renderProducts = async (data) => {
     </h5> </div>
         
         <div class="card-footer">
-        <span>${x.price}</span>
+        <span>${price}</span>
         </div>
     </div>`
     })
