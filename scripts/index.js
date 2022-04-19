@@ -30,16 +30,7 @@ filter.addEventListener('change', (e) => {
     })
 });
 showAll.addEventListener("click", async (e) => {
-    clearProducts()
-    await fetch(`${URI}/products/page?page=${0}&limit=${8}`)
-        .then(res => res.json())
-        .then(resJson => resJson[0].rows)
-        .catch(err => console.log(err))
-        .then(data => {
-            const titleCategory = document.getElementById('titleCategory')
-            titleCategory.innerHTML = `Todos los productos`
-            renderProducts(data)
-        });
+    location.reload()
 });
 searchInput.addEventListener("submit", async (e) => {
     e.preventDefault()
