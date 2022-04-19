@@ -125,3 +125,20 @@
 #paginationContainer{
     justify-content: center;
 }
+.page-link{
+    color: black;
+    cursor: pointer;
+}
+.page-link:hover{
+    color: white;
+    background-color: black;
+}
+.search-container{
+    flex-direction: row-reverse;
+}
+
+@media(max-width:444px) {
+    .menu{
+        justify-content: center!important;
+    }
+}
