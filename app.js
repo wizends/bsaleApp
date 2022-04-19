@@ -3,10 +3,11 @@ const path = require('path')
 
 const app = express()
 
+const port = 3000;
 
 app.use(express.static(path.join(__dirname)));
 
-const port_number = app.listen(process.env.PORT || 3000);
+const port_number = app.listen(process.env.PORT || port);
 app.listen(port_number);
 
 app.get('/',(req,res) => {
