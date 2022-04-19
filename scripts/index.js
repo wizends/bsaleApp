@@ -1,4 +1,4 @@
-const URI = "https://bsaletesapi.herokuapp.com/";
+const URI = "https://bsaletesapi.herokuapp.com";
 const productsToShow = 8;
 
 fetch(`${URI}/pageQuantity`)
