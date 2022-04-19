@@ -1,4 +1,4 @@
-const URI = "https://bsaletesapi.herokuapp.com";
+const URI = "http://localhost:3000";
 const productsToShow = 8;
 
 fetch(`${URI}/pageQuantity`)
