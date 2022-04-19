@@ -84,11 +84,15 @@
     margin:30px;
     width: 200px;
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+
 }
 .card-body{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+}
+.card-img-top{
+    max-width: 200px;
 }
 .searchResult{
     display: flex;
@@ -117,4 +121,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+#paginationContainer{
+    justify-content: center;
 }

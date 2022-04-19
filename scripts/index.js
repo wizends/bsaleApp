@@ -1,6 +1,21 @@
-const URI = "https://bsaletesapi.herokuapp.com";
+const URI = "https://bsaletesapi.herokuapp.com/";
+
+const productsToShow = 8;
+
+fetch(`${URI}/pageQuantity`)
+.then(res => res.json())
+.then(pageQuantity => {
+    if(pageQuantity%productsToShow > 0){
+        numberofPages = Math.round(pageQuantity/productsToShow+1)
+        renderPages(numberofPages)
+    }else if(pageQuantity%productsToShow == 0){
+        numberofPages = Math.round(pageQuantity/productsToShow)
+        renderPages(numberofPages)
+    }
+})
 
 filter.addEventListener('change', (e) => {
+    paginationContainer.innerHTML = ""
     const condition = e.target.value
     clearProducts()
     fetch(`${URI}/products/filter/${condition}`)
@@ -16,8 +31,9 @@ filter.addEventListener('change', (e) => {
 });
 showAll.addEventListener("click", async (e) => {
     clearProducts()
-    await fetch(`${URI}/products`)
+    await fetch(`${URI}/products/page?page=${0}&limit=${8}`)
         .then(res => res.json())
+        .then(resJson => resJson[0].rows)
         .catch(err => console.log(err))
         .then(data => {
             const titleCategory = document.getElementById('titleCategory')
@@ -27,6 +43,7 @@ showAll.addEventListener("click", async (e) => {
 });
 searchInput.addEventListener("submit", async (e) => {
     e.preventDefault()
+    paginationContainer.innerHTML = ""
     const search = document.getElementById('tosearch').value
     fetch(`${URI}/products/search/${search}`)
         .then(res => res.json())
@@ -50,17 +67,33 @@ searchInput.addEventListener("submit", async (e) => {
 
         })
 });
-fetch(`${URI}/products`)
+//*************************TODOS LOS PRODUCTOS ********************************/
+fetch(`${URI}/products/page?page=${0}&limit=${productsToShow}`)
     .then(res => res.json())
     .catch(err => console.log(err))
+    .then(resJson => resJson[0].rows)
     .then(data => {
+        console.log(data)
         filterContainer.innerHTML += `<h4 id="titleCategory">Todos los productos</h4>`
         renderProducts(data)
-    });
+
+});
+const paginationNumber = async (page) => {
+    fetch(`${URI}/products/page?page=${page}&limit=${productsToShow}`)
+    .then(res => res.json())
+    .catch(err => console.log(err))
+    .then(resJson => resJson[0].rows)
+    .then(data => {
+        filterContainer.innerHTML = `<h4 id="titleCategory">Todos los productos</h4>`
+        clearProducts()
+        renderProducts(data)
+
+});
+}
 
 fetch(`${URI}/categories`)
     .then(res => res.json())
-    .catch(err => console.log(errrs))
+    .catch(err => console.log(err))
     .then(data => {
         data.map(x => {
             sideBarItems.innerHTML += `<a id="${x.id}" onClick="handleClick(${x.id})"class="list-group-item item">${x.name}</a>`
@@ -68,6 +101,7 @@ fetch(`${URI}/categories`)
     });
 
 const handleClick = async (id) => {
+    paginationContainer.innerHTML = ""
     fetch(`${URI}/categories/${id}`)
         .then(res => res.json())
         .then(data => {

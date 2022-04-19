@@ -10,6 +10,8 @@ const filterContainer = document.getElementById('filterContainer')
 const filter = document.getElementById('filter')
 const bodyContain = document.getElementById('bodyContain')
 const item = document.querySelector('.item')
+const paginationContainer = document.getElementById('paginationContainer')
+
 
 
 closeSideBarButton.addEventListener("click", async () => {
@@ -45,8 +47,14 @@ const renderProducts = async (data) => {
         
         <div class="card-footer">
         <span>${x.price}</span>
-        <a><i class="fa-solid fa-cart-plus"></i></a>
         </div>
     </div>`
     })
+}
+const renderPages = async (data) => {
+    for (let index = 0; index < data; index++) {
+        paginationContainer.innerHTML += `
+        <li class="page-item"><a onClick='paginationNumber(${index})' class="page-link">${index+1}</a></li>
+        `
+    }
 }
