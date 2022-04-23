@@ -1,4 +1,4 @@
-const URI = "http://localhost:3004"; //se crea la varaible URI para almacenar esta misma 
+const URI = "https://bsaletesapi.herokuapp.com"; //se crea la varaible URI para almacenar esta misma 
 const productsToShow = 8;//Se crea la variable que determina la cantidad de productos a mostrar 
 
 //*************************CANTIDAD DE PRODUCTOS ********************************/
