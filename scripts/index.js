@@ -62,7 +62,7 @@ searchInput.addEventListener("submit", async (e) => {//usamos la variable search
 //*************************TODOS LOS PRODUCTOS ********************************/
 fetch(`${URI}/products/page?page=${0}&limit=${productsToShow}`)//peticion https donde bindeamos mediante query(? con este simbolo) la pagina actual seguida del limite de productos a mostrar
     .then(res => res.json())
-    .catch(err => console.log(err))//capturamos un error si es que lo hubiera
+    .catch(err => console.log("Ha habido un error"))//capturamos un error si es que lo hubiera
     .then(resJson => resJson[0].rows)// aca simplificamos la respuesta trayendo solo la primera fila del arreglo en la cual viene el objeto, luego de eso llamamos a la key rows en donde vienen los datos
     .then(data => {
         filterContainer.innerHTML += `<h4 id="titleCategory">Todos los productos</h4>`//rellenamos el contenedor del filtro para mostrar el titulo de lo obtenido
