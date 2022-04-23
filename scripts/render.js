@@ -74,7 +74,7 @@ const renderProducts = async (data) => {
 const renderPages = async (data) => {//recibe una data la cual sera en este caso un arreglo contenido de un numero
     for (let index = 0; index < data; index++) {//recorremos el arreglo n cantidad de veces, en este caso el numero que viene por la funcion 
         paginationContainer.innerHTML += `
-        <li class="page-item"><a onClick='paginationNumber(${index})' class="page-link">${index+1}</a></li>
+        <li class="page-item"><input value='${index+1}' type="button" onClick='paginationNumber(${index})' class="page-link"></input></li>
         `// generamos los numeros de las paginas en el contenedor de las mismas
     }
 }

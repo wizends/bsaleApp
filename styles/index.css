@@ -47,6 +47,7 @@
     background-color: black;
     color: white;
 }
+
 .item-title{
     margin-top: 20px;
     padding-left: 20px;
@@ -133,6 +134,10 @@
     cursor: pointer;
 }
 .page-link:hover{
+    color: white;
+    background-color: black;
+}
+.page-link:focus {
     color: white;
     background-color: black;
 }
