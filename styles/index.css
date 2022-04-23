@@ -4,6 +4,9 @@
     margin-right: 20px;
 }
 
+#searchButton{
+    cursor: pointer;
+}
 
 .inv{
     visibility: hidden;
