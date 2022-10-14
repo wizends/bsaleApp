@@ -2,6 +2,9 @@
 
 Este proyecto esta enfocado para mostrar la implementación de una tienda online utilizando Javascript Vanilla, HTML5 y CSS3. La aplicación utiliza el método fetch() para poder hacer peticiones mediante https, con esto los datos provenientes de la API: https://github.com/wizends/Bsale 
 
+![image](https://user-images.githubusercontent.com/89259697/195759540-24689f47-d622-4624-9f6d-8d4bb8c961a6.png)
+
+
 # Instalación
 
 ## **Pasos para correr la aplicación:**
